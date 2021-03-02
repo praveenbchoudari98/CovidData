@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Route,Switch} from "react-router-dom";
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import reduxPromise from 'redux-promise';
+import reducers from './reducer'
+import StateContainer from './container/states_container'
+import Home from './Home'
+import DistContainer from './container/Dist_Container';
+
 
 function App() {
+  const middleware = [ reduxPromise ];
+   const store = createStore(reducers, applyMiddleware(...middleware));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Switch>
+    <Provider store={store}>
+    <Route path="/" exact component={Home}/>
+    <Route path="/states" exact component={StateContainer}/>
+    <Route path="/states/:id" exact component={DistContainer}/>
+    </Provider>
+    </Switch>
+    </BrowserRouter>
   );
 }
 
