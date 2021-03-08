@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { Fragment, useEffect,useState } from 'react'
+import Loading from './components/Loading'
 import { Navbar } from './components/Navbar'
 import PatContainer from './container/Pat_Container'
 
 
 const Home=()=>{
+    const [loading,setLoading]=useState(true)
+    useEffect(()=>{
+      setLoading(false)
+    },[])
     return(
-    <React.Fragment>
+    <Fragment>
+    {loading?
+    <Loading />
+    :
+    <Fragment>
     <Navbar />
     <PatContainer />
-    </React.Fragment>
-)}
+    </Fragment>
+    }
+    </Fragment>
+
+    )}
 export default Home;
