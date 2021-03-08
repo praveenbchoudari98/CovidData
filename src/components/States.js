@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Loading from './Loading';
 
 const useStyles = makeStyles({
   table: {
@@ -41,7 +42,9 @@ return(
         <TableCell><Link to={`/states/${data}`} style={{textDecoration:'none',color:'#555'}}>{data}</Link></TableCell>
         </TableRow>
         )  
-        :null}
+        :
+       <Loading />
+      }
         </TableBody>
         </Table>
         </TableContainer>

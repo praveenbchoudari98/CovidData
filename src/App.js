@@ -16,8 +16,8 @@ function App() {
     <BrowserRouter>
     <Switch>
     <Provider store={store}>
-    <Route path="/" exact component={Home}/>
     <Route path="/states" exact component={StateContainer}/>
+    <Route path="/" exact component={Home}/>
     <Route path="/states/:id" exact component={DistContainer}/>
     </Provider>
     </Switch>

@@ -8,7 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import Loading from './Loading'
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -35,7 +35,7 @@ return(
             
             </TableRow>
       )
-      :null}
+      :<Loading />}
     </TableHead>
     <TableBody>
     {props.districts && props.districts.length>0 ?
